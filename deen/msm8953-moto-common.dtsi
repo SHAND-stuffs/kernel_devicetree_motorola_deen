@@ -20,19 +20,6 @@
 		/delete-property/ spi3;
 		/delete-property/ i2c5;
 	};
-
-	utags {
-		compatible = "mmi,utags";
-		mmi,main-utags = "/dev/block/bootdevice/by-name/utags";
-		mmi,backup-utags = "/dev/block/bootdevice/by-name/utagsBackup";
-	};
-
-	hw {
-		compatible = "mmi,utags";
-		mmi,dir-name = "hw";
-		mmi,main-utags = "/dev/block/bootdevice/by-name/hw";
-	};
-
 };
 
 &soc{
@@ -142,47 +129,6 @@
 				<84 512 500 800>;
 		status = "ok";
 	};
-
-	usb3: ssusb@7000000{
-		mmi,qos_latency = <10999>;
-		vbus_dwc3-supply = <&usb_otg_switch>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&otg_en_default &otg_fault_default>;
-		qcom,otg-fault-gpio = <&tlmm 34  0x1>; /* GPIOF_IN*/
-		psy,type-c;
-		qcom,ssusb-compliance;
-		dwc3@7000000 {
-			controller-number = /bits/ 8 <1>;
-		};
-	};
-
-	qusb_phy: qusb@79000 {
-		qcom,qusb-phy-init-seq = <0x73 0x80
-					0x72 0x84
-					0x07 0x88
-					0x13 0x8C
-					0x30 0x08
-					0x79 0x0C
-					0x21 0x10
-					0x14 0x9C
-					0x9F 0x1C
-					0x00 0x18>;
-	};
-
-	usb_otg_switch: usb-otg-switch {
-		compatible = "regulator-fixed";
-		regulator-name = "usb_otg_vreg";
-		vin-supply = <&smbcharger_external_otg>;
-		enable-active-high;
-		gpio = <&tlmm 109 0>;
-		status = "okay";
-	};
-};
-
-&blsp1_uart0 {
-	status = "ok";
-	pinctrl-names = "default";
-	pinctrl-0 = <&uart_console_active>;
 };
 
 &pmi8950_gpios {
