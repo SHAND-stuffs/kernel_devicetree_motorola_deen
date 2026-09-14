@@ -28,6 +28,7 @@
 		};
 
 		config {
+			/delete-property/ output-high;
 			pins = "gpio61";
 		};
 	};
@@ -59,6 +60,7 @@
 	pinctrl-1 = <&mdss_dsi_suspend>;
 
 	qcom,dsi-pref-prim-pan = <&mot_tianma_586_720p_vid_v0>;
+	qcom,display-id = "primary";
 
 	/delete-property/ vdd-supply;
 	vddio_disp-supply = <&pm8953_l6>;

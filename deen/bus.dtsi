@@ -33,4 +33,18 @@
                 clock-names = "iface_clk", "core_clk";
                 clocks = <&clock_gcc clk_gcc_blsp1_ahb_clk>,
                          <&clock_gcc clk_gcc_blsp1_qup1_i2c_apps_clk>;
+        };
+};
+
+&blsp1_uart0 {
+        status = "ok";
+        pinctrl-names = "default";
+        pinctrl-0 = <&uart_console_active>;
+};
+
+/ {
+        aliases {
+                i2c1 = &i2c_1;
+                /delete-property/ spi3;
+        };
 };

@@ -12,6 +12,11 @@
 
 &soc {
         i2c_2: i2c@78b6000 { /* BLSP1 QUP2 */
+                pinctrl-names = "i2c_active", "i2c_sleep";
+                pinctrl-0 = <&i2c_2_active>;
+                pinctrl-1 = <&i2c_2_sleep>;
+                /delete-node/ adv7533@39;
+
                 sar_abov:abov@20 {
                         compatible = "abov,abov_sar";
                         reg = <0x20>;

@@ -12,13 +12,12 @@
 
 /* Custom */
 #include "qcom/msm8953.dtsi"
-#include "qcom/pmi8950.dtsi"
+#include "qcom/msm-pmi8950.dtsi"
 #include "qcom/msm8953-pinctrl.dtsi"
 
 /* Moto */
 #include "soc.dtsi"
 #include "pmi8950.dtsi"
-#include "soc.dtsi"
 
 #include "carrier-channel-ids.dtsi"
 #include "include/moto-mem-reserve.h"
